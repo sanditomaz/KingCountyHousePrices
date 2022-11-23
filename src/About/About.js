@@ -47,7 +47,9 @@ export default function About() {
         <header>
           <h2>
             This Webpage was developed by Sandi Tomaz -
-            <a href="https://www.linkedin.com/in/sanditomaz/"> Linkedin</a>
+            <a href="https://www.linkedin.com/in/sanditomaz/" target="_blank">
+              Linkedin
+            </a>
           </h2>
         </header>
       </div>
