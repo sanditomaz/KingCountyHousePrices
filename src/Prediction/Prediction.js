@@ -247,6 +247,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 80px;
 
   div {
     display: flex;
@@ -369,6 +370,7 @@ const Main = styled.main`
         font-weight: 700;
         color: #ffffff;
         cursor: pointer;
+        margin-bottom: 5px;
       }
     }
   }
