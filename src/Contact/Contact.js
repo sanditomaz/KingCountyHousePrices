@@ -48,6 +48,7 @@ const OutterContainer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 8px;
+  background-color: #e0dedb;
 `;
 
 const Main = styled.main`
@@ -95,14 +96,16 @@ const FirstSide = styled.header`
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      background-color: #ccd1e9;
+      background-color: #ffffff;
+      border: 2px solid #d5d3d2;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
       word-break: break-word;
       border-radius: 100px;
-      padding-left: 10px;
+      padding-left: 15px;
       h2 {
         font-size: 18px;
         font-weight: 400;
-        padding-left: 5px;
+        padding-left: 10px;
         font-family: "Roboto", sans-serif;
         color: #343140;
 
@@ -133,6 +136,10 @@ const SecondSide = styled.header`
   }
   img {
     width: 100%;
+
+    @media screen and (min-width: 1800px) {
+      width: 600px;
+    }
   }
 
   @media screen and (max-width: 650px) {

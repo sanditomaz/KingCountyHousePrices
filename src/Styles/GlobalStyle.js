@@ -6,7 +6,6 @@ const GlobalStyle = createGlobalStyle`
     body{
         box-sizing: border-box;
         font-family: 'Raleway', sans-serif;
-        //font-family: 'Saira Stencil One', cursive;
         cursor: default;
         a {
             text-decoration: none;
@@ -15,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }
     html,body{
         height: 100%;
-        background-color:#ffffffff;
+        background-color:#e0dedb;
     }
     .root{
         height: 100%

@@ -47,21 +47,20 @@ export default function About() {
 
 const Main = styled.main`
   width: 100%;
-  background-color: #ffffff;
+  background-color: #e0dedb;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 8px;
   div {
     width: 80%;
-    background-color: #ffffff;
+    background-color: #e0dedb;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 45px;
-    padding: 50px;
-    margin-top: 11px;
+    padding: 30px 50px;
     border-radius: 6px;
 
     nav {
