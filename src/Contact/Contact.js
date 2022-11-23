@@ -1,7 +1,31 @@
 import styled from "styled-components";
 import { SocialIcon } from "react-social-icons";
+import { useState } from "react";
 
 export default function About() {
+  const [isCopied, setIsCopied] = useState(false);
+
+  async function copyEmail(email) {
+    if ("clipboard" in navigator) {
+      return await navigator.clipboard.writeText(email);
+    }
+  }
+
+  function handleClick() {
+    const email = "Kairo.silveira.contato@gmail.com";
+
+    copyEmail(email)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <OutterContainer>
       <Main>
@@ -10,24 +34,36 @@ export default function About() {
             <h1>Hi there! Let's get in touch...</h1>
           </span>
           <div>
-            <nav>
+            <nav onClick={() => handleClick()}>
               <SocialIcon network="email" bgColor="#ffffff" fgColor="#f43f1b" />
-              <h2>Kairo.silveira.contato@gmail.com</h2>
+              <h2>
+                {isCopied ? "Copied !! 😉" : "Kairo.silveira.contato@gmail.com"}
+              </h2>
             </nav>
-            <nav>
-              <SocialIcon
-                url="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADDLHaoBH0lLV0BIdEkHpXACJpoYKyvJZWc&keywords=kairo%20silveira&origin=RICH_QUERY_SUGGESTION&position=0&searchId=00630234-e261-4ca4-9433-33911c42124b&sid=6r7"
-                fgColor="#ffffff"
-              />
-              <h2>Linkedin</h2>
-            </nav>
-            <nav>
-              <SocialIcon
-                url="https://github.com/kairosilveira"
-                fgColor="#ffffff"
-              />
-              <h2>Github</h2>
-            </nav>
+            <a
+              href="https://www.linkedin.com/in/kairosilveira/"
+              target="_blank"
+            >
+              <nav>
+                <SocialIcon
+                  url="https://www.linkedin.com/in/kairosilveira/"
+                  fgColor="#ffffff"
+                  target="_blank"
+                />
+
+                <h2>Linkedin</h2>
+              </nav>
+            </a>
+            <a href="https://github.com/kairosilveira" target="_blank">
+              <nav>
+                <SocialIcon
+                  url="https://github.com/kairosilveira"
+                  fgColor="#ffffff"
+                  target="_blank"
+                />
+                <h2>Github</h2>
+              </nav>
+            </a>
           </div>
         </FirstSide>
 
@@ -89,6 +125,17 @@ const FirstSide = styled.header`
     max-width: 500px;
     width: 100%;
     gap: 20px;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 500px;
+      width: 100%;
+      gap: 20px;
+    }
+
     nav {
       max-width: 500px;
       width: 100%;
@@ -102,6 +149,8 @@ const FirstSide = styled.header`
       word-break: break-word;
       border-radius: 100px;
       padding-left: 15px;
+      cursor: pointer;
+
       h2 {
         font-size: 18px;
         font-weight: 400;

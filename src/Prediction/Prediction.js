@@ -1,231 +1,257 @@
 import React from "react";
 import styled from "styled-components";
 import Result from "./Result";
+import { useState } from "react";
 
-export default function Prediction() {
+export default function Prediction({ goMain, setMain }) {
   const [value, setValue] = React.useState(0);
+
+  function handleForm() {
+    setMain(false);
+  }
+
   return (
     <OutterBox>
       <Main>
-        {/* <Result /> */}
+        {goMain ? (
+          <>
+            <div>
+              <h1>Prediction Interactive Form</h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
 
-        <div>
-          <h1>Prediction Interactive Form</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
+            <nav>
+              <form>
+                <span>
+                  <div>
+                    <label for="datemax">Date house was last sold: </label>
+                    <input type="date" name="datemin" min="1900-01-01" />
+                    <br />
+                    <br />
 
-        <nav>
-          <form>
-            <span>
-              <div>
-                <label for="datemax">Date house was last sold: </label>
-                <input type="date" name="datemin" min="1900-01-01" />
-                <br />
-                <br />
+                    <label for="quantity">Number of Bedrooms: </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="15"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Number of Bedrooms: </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="15"
-                  step="1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">Number of bathrooms/bedrooms:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="8"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Number of bathrooms/bedrooms:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="8"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">Interior living space:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Interior living space:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      Total floors (levels) in house:
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="1.0"
+                      max="3.5"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Total floors (levels) in house:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="1.0"
-                  max="3.5"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      The square footage of the land lots of the nearest 15
+                      neighbors :
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">
-                  The square footage of the land lots of the nearest 15
-                  neighbors :
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">Latitude coordinate:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="45.0"
+                      max="50.0"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Latitude coordinate:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="45.0"
-                  max="50.0"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">Longitude coordinate:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="-123.0"
+                      max="-121.0"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Longitude coordinate:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="-123.0"
-                  max="-121.0"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      The square footage of interior housing living space for
+                      the nearest 15 neighbors:
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
+                  </div>
 
-                <label for="quantity">
-                  The square footage of interior housing living space for the
-                  nearest 15 neighbors:
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
-              </div>
+                  <div>
+                    <label for="waterfront">
+                      Does the house have a waterfront view?
+                    </label>
+                    <select>
+                      <option value="yes">yes</option>
+                      <option value="no">no</option>
+                    </select>
 
-              <div>
-                <label for="waterfront">
-                  Does the house have a waterfront view?
-                </label>
-                <select>
-                  <option value="yes">yes</option>
-                  <option value="no">no</option>
-                </select>
+                    <br />
+                    <br />
 
-                <br />
-                <br />
+                    <label for="quantity">Square footage of the lot:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Square footage of the lot:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">How good the view is: </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="4"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">How good the view is: </label>
-                <input type="number" name="quantity" min="0" max="4" step="1" />
-                <br />
-                <br />
+                    <label for="quantity">How good the condition is:</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="1"
+                      max="5"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">How good the condition is:</label>
-                <input type="number" name="quantity" min="1" max="5" step="1" />
-                <br />
-                <br />
+                    <label for="quantity">
+                      Overall grade given to the housing unit:
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="1"
+                      max="13"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">
-                  Overall grade given to the housing unit:
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="1"
-                  max="13"
-                  step="1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      Square footage of house apart from basement :
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">
-                  Square footage of house apart from basement :
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">Built Year: </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="1900"
+                      max="2022"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">Built Year: </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="1900"
-                  max="2022"
-                  step="1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      Year when house was renovated(Type 0 if house was not
+                      renovated):
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="2022"
+                      step="1"
+                    />
+                    <br />
+                    <br />
 
-                <label for="quantity">
-                  Year when house was renovated(Type 0 if house was not
-                  renovated):
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="2022"
-                  step="1"
-                />
-                <br />
-                <br />
+                    <label for="quantity">
+                      Square footage of the basement:
+                    </label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      min="0"
+                      max="10000"
+                      step="0.1"
+                    />
+                    <br />
+                    <br />
+                  </div>
+                </span>
 
-                <label for="quantity">Square footage of the basement:</label>
-                <input
-                  type="number"
-                  name="quantity"
-                  min="0"
-                  max="10000"
-                  step="0.1"
-                />
-                <br />
-                <br />
-              </div>
-            </span>
-
-            <button>Submit Data</button>
-          </form>
-        </nav>
+                <button onClick={handleForm}>Submit Data</button>
+              </form>
+            </nav>
+          </>
+        ) : (
+          <Result goMain={goMain} setMain={setMain} />
+        )}
       </Main>
     </OutterBox>
   );
@@ -292,7 +318,6 @@ const Main = styled.main`
       display: flex;
       flex-direction: column;
       background-color: #faf9f7;
-      //background-color: pink;
       flex-wrap: wrap;
       gap: 15px;
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
@@ -322,7 +347,6 @@ const Main = styled.main`
         align-items: flex-start;
         justify-content: flex-start;
         padding: 10px;
-        //background-color: pink;
       }
 
       label {

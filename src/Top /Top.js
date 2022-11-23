@@ -1,17 +1,21 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Top() {
+export default function Top({ setMain }) {
+  function handleClick() {
+    setMain(true);
+  }
+
   return (
     <Main>
       <div>
         <Link to={`/`}>
-          <h1>King County House Prices</h1>
+          <h1 onClick={handleClick}>King County House Prices</h1>
         </Link>
       </div>
       <div>
         <Link to={`/`}>
-          <h2>PREDICTIONS</h2>
+          <h2 onClick={handleClick}>PREDICTIONS</h2>
         </Link>
         <Link to={`/about`}>
           <h2>ABOUT</h2>
