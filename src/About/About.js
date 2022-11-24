@@ -17,7 +17,7 @@ export default function About() {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
 
-            <img src="Image/model.jpeg" />
+            <img src="Image/model.jpeg" alt="" />
           </span>
         </nav>
         <nav>
@@ -47,7 +47,11 @@ export default function About() {
         <header>
           <h2>
             This Webpage was developed by Sandi Tomaz -
-            <a href="https://www.linkedin.com/in/sanditomaz/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/sanditomaz/"
+              target="_blank"
+              alt="linkedin"
+            >
               Linkedin
             </a>
           </h2>

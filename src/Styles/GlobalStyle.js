@@ -11,6 +11,27 @@ const GlobalStyle = createGlobalStyle`
             text-decoration: none;
             cursor: pointer;
         }
+
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+        }
+        
+
+        ::-webkit-scrollbar-thumb {
+        background:  #3e3e3e; 
+        border-radius: 10px;
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+        background: #7b7676; 
+        }
     }
     html,body{
         height: 100%;

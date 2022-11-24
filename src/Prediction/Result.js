@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SimpleMap from "../Styles/Map";
 import { useState, useEffect, useRef } from "react";
 
-export default function Result({ goMain, setMain }) {
+export default function Result({ goMain, setMain, data }) {
   function handleClick() {
     setMain(true);
   }

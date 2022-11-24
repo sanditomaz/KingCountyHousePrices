@@ -2,14 +2,37 @@ import React from "react";
 import styled from "styled-components";
 import Result from "./Result";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Prediction({ goMain, setMain }) {
-  const [value, setValue] = React.useState(0);
+  const [form, setForm] = useState({});
+  const [data, setData] = useState();
+  let toSend;
 
-  function handleForm() {
-    setMain(false);
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    const promise = axios.post(
+      "https://house-regression.herokuapp.com/predict",
+      toSend
+    );
+    promise.then((res) => {
+      setData(res.data);
+      setMain(false);
+    });
+    promise.catch((err) => console.log(err));
+  };
+
+  const handleForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+    console.log(form);
+  };
+  toSend = { data: [form] };
+  console.log(form);
+  console.log(toSend);
+
+  console.log(data);
   return (
     <OutterBox>
       <Main>
@@ -29,106 +52,126 @@ export default function Prediction({ goMain, setMain }) {
             </div>
 
             <nav>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <span>
                   <div>
-                    <label for="datemax">Date house was last sold: </label>
-                    <input type="date" name="datemin" min="1900-01-01" />
+                    <label for="date">Date house was last sold: </label>
+                    <input
+                      required
+                      onChange={handleForm}
+                      type="date"
+                      name="date"
+                      min="1900-01-01"
+                    />
                     <br />
                     <br />
 
-                    <label for="quantity">Number of Bedrooms: </label>
+                    <label for="bedrooms">Number of Bedrooms: </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="bedrooms"
                       min="0"
                       max="15"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">Number of bathrooms/bedrooms:</label>
+                    <label for="bathrooms">Number of bathrooms/bedrooms:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="bathrooms"
                       min="0"
                       max="8"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">Interior living space:</label>
+                    <label for="sqft_living">Interior living space:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_living"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
-                      Total floors (levels) in house:
-                    </label>
+                    <label for="floors">Total floors (levels) in house:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="floors"
                       min="1.0"
                       max="3.5"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="sqft_lot">
                       The square footage of the land lots of the nearest 15
                       neighbors :
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_lot"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">Latitude coordinate:</label>
+                    <label for="lat">Latitude coordinate:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="lat"
                       min="45.0"
                       max="50.0"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">Longitude coordinate:</label>
+                    <label for="long">Longitude coordinate:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="long"
                       min="-123.0"
                       max="-121.0"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="sqft_living15">
                       The square footage of interior housing living space for
                       the nearest 15 neighbors:
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_living15"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
@@ -138,119 +181,135 @@ export default function Prediction({ goMain, setMain }) {
                     <label for="waterfront">
                       Does the house have a waterfront view?
                     </label>
-                    <select>
-                      <option value="yes">yes</option>
-                      <option value="no">no</option>
+                    <select name="waterfront" required onChange={handleForm}>
+                      <option value="1">yes</option>
+                      <option value="0">no</option>
                     </select>
 
                     <br />
                     <br />
 
-                    <label for="quantity">Square footage of the lot:</label>
+                    <label for="sqft_lot">Square footage of the lot:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_lot"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">How good the view is: </label>
+                    <label for="view">How good the view is: </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="view"
                       min="0"
                       max="4"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">How good the condition is:</label>
+                    <label for="condition">How good the condition is:</label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="condition"
                       min="1"
                       max="5"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="grade">
                       Overall grade given to the housing unit:
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="grade"
                       min="1"
                       max="13"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="sqft_basement">
                       Square footage of house apart from basement :
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_basement"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">Built Year: </label>
+                    <label for="yr_built">Built Year: </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="yr_built"
                       min="1900"
                       max="2022"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="yr_renovated">
                       Year when house was renovated(Type 0 if house was not
                       renovated):
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="yr_renovated"
                       min="0"
                       max="2022"
                       step="1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label for="quantity">
+                    <label for="sqft_basement">
                       Square footage of the basement:
                     </label>
                     <input
                       type="number"
-                      name="quantity"
+                      name="sqft_basement"
                       min="0"
                       max="10000"
                       step="0.1"
+                      required
+                      onChange={handleForm}
                     />
                     <br />
                     <br />
                   </div>
                 </span>
 
-                <button onClick={handleForm}>Submit Data</button>
+                <button>Submit Data</button>
               </form>
             </nav>
           </>
         ) : (
-          <Result goMain={goMain} setMain={setMain} />
+          <Result goMain={goMain} setMain={setMain} data={data} />
         )}
       </Main>
     </OutterBox>
@@ -288,7 +347,7 @@ const Main = styled.main`
       font-weight: 700;
       font-family: "Oswald", sans-serif;
       color: #363636;
-      line-height: 23px;
+      line-height: 28px;
       padding: 10px 10px 10px 10px;
     }
     p {
