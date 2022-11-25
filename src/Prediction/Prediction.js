@@ -24,12 +24,16 @@ export default function Prediction({ goMain, setMain }) {
   };
 
   const handleForm = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    if (e.target.name === "date") {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    } else {
+      setForm({ ...form, [e.target.name]: Number(e.target.value) });
+    }
 
-    console.log(form);
+    console.log(form, typeof e.target.value);
   };
   toSend = { data: [form] };
-  console.log(form);
+
   console.log(toSend);
 
   console.log(data);
@@ -118,13 +122,13 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_lot">
+                    <label for="sqft_lot15">
                       The square footage of the land lots of the nearest 15
                       neighbors :
                     </label>
                     <input
                       type="number"
-                      name="sqft_lot"
+                      name="sqft_lot15"
                       min="0"
                       max="10000"
                       step="0.1"
@@ -182,6 +186,7 @@ export default function Prediction({ goMain, setMain }) {
                       Does the house have a waterfront view?
                     </label>
                     <select name="waterfront" required onChange={handleForm}>
+                      <option value=" "> </option>
                       <option value="1">yes</option>
                       <option value="0">no</option>
                     </select>
@@ -243,12 +248,12 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_basement">
+                    <label for="sqft_above">
                       Square footage of house apart from basement :
                     </label>
                     <input
                       type="number"
-                      name="sqft_basement"
+                      name="sqft_above"
                       min="0"
                       max="10000"
                       step="0.1"

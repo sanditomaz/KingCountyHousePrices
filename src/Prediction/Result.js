@@ -4,6 +4,9 @@ import SimpleMap from "../Styles/Map";
 import { useState, useEffect, useRef } from "react";
 
 export default function Result({ goMain, setMain, data }) {
+  const result = data.price[0];
+  const price = result.toFixed(2);
+
   function handleClick() {
     setMain(true);
   }
@@ -12,7 +15,7 @@ export default function Result({ goMain, setMain, data }) {
     <>
       <Main>
         <h1>The estimated house price is the following:</h1>
-        <article>$ 80900.00</article>
+        <article>${price}</article>
 
         <SimpleMap />
 
