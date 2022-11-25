@@ -1,3 +1,4 @@
+import { ThreeDots } from "react-loader-spinner";
 import React from "react";
 import styled from "styled-components";
 import Result from "./Result";
@@ -7,9 +8,11 @@ import axios from "axios";
 export default function Prediction({ goMain, setMain }) {
   const [form, setForm] = useState({});
   const [data, setData] = useState();
+  const [disable, setDisable] = useState(false);
   let toSend;
 
   const handleSubmit = (e) => {
+    setDisable(true);
     e.preventDefault();
 
     const promise = axios.post(
@@ -19,8 +22,12 @@ export default function Prediction({ goMain, setMain }) {
     promise.then((res) => {
       setData(res.data);
       setMain(false);
+      setDisable(false);
     });
-    promise.catch((err) => console.log(err));
+    promise.catch((err) => {
+      setDisable(false);
+      console.log(err);
+    });
   };
 
   const handleForm = (e) => {
@@ -29,9 +36,8 @@ export default function Prediction({ goMain, setMain }) {
     } else {
       setForm({ ...form, [e.target.name]: Number(e.target.value) });
     }
-
-    console.log(form, typeof e.target.value);
   };
+
   toSend = { data: [form] };
 
   console.log(toSend);
@@ -59,7 +65,7 @@ export default function Prediction({ goMain, setMain }) {
               <form onSubmit={handleSubmit}>
                 <span>
                   <div>
-                    <label for="date">Date house was last sold: </label>
+                    <label htmlFor="date">Date house was last sold: </label>
                     <input
                       required
                       onChange={handleForm}
@@ -70,7 +76,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="bedrooms">Number of Bedrooms: </label>
+                    <label htmlFor="bedrooms">Number of Bedrooms: </label>
                     <input
                       type="number"
                       name="bedrooms"
@@ -83,7 +89,9 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="bathrooms">Number of bathrooms/bedrooms:</label>
+                    <label htmlFor="bathrooms">
+                      Number of bathrooms/bedrooms:
+                    </label>
                     <input
                       type="number"
                       name="bathrooms"
@@ -96,7 +104,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_living">Interior living space:</label>
+                    <label htmlFor="sqft_living">Interior living space:</label>
                     <input
                       type="number"
                       name="sqft_living"
@@ -109,7 +117,9 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="floors">Total floors (levels) in house:</label>
+                    <label htmlFor="floors">
+                      Total floors (levels) in house:
+                    </label>
                     <input
                       type="number"
                       name="floors"
@@ -122,7 +132,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_lot15">
+                    <label htmlFor="sqft_lot15">
                       The square footage of the land lots of the nearest 15
                       neighbors :
                     </label>
@@ -138,7 +148,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="lat">Latitude coordinate:</label>
+                    <label htmlFor="lat">Latitude coordinate:</label>
                     <input
                       type="number"
                       name="lat"
@@ -151,7 +161,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="long">Longitude coordinate:</label>
+                    <label htmlFor="long">Longitude coordinate:</label>
                     <input
                       type="number"
                       name="long"
@@ -164,7 +174,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_living15">
+                    <label htmlFor="sqft_living15">
                       The square footage of interior housing living space for
                       the nearest 15 neighbors:
                     </label>
@@ -182,7 +192,7 @@ export default function Prediction({ goMain, setMain }) {
                   </div>
 
                   <div>
-                    <label for="waterfront">
+                    <label htmlFor="waterfront">
                       Does the house have a waterfront view?
                     </label>
                     <select name="waterfront" required onChange={handleForm}>
@@ -194,7 +204,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_lot">Square footage of the lot:</label>
+                    <label htmlFor="sqft_lot">Square footage of the lot:</label>
                     <input
                       type="number"
                       name="sqft_lot"
@@ -207,7 +217,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="view">How good the view is: </label>
+                    <label htmlFor="view">How good the view is: </label>
                     <input
                       type="number"
                       name="view"
@@ -220,7 +230,9 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="condition">How good the condition is:</label>
+                    <label htmlFor="condition">
+                      How good the condition is:
+                    </label>
                     <input
                       type="number"
                       name="condition"
@@ -233,7 +245,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="grade">
+                    <label htmlFor="grade">
                       Overall grade given to the housing unit:
                     </label>
                     <input
@@ -248,7 +260,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_above">
+                    <label htmlFor="sqft_above">
                       Square footage of house apart from basement :
                     </label>
                     <input
@@ -263,7 +275,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="yr_built">Built Year: </label>
+                    <label htmlFor="yr_built">Built Year: </label>
                     <input
                       type="number"
                       name="yr_built"
@@ -276,7 +288,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="yr_renovated">
+                    <label htmlFor="yr_renovated">
                       Year when house was renovated(Type 0 if house was not
                       renovated):
                     </label>
@@ -292,7 +304,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
                     <br />
 
-                    <label for="sqft_basement">
+                    <label htmlFor="sqft_basement">
                       Square footage of the basement:
                     </label>
                     <input
@@ -309,7 +321,21 @@ export default function Prediction({ goMain, setMain }) {
                   </div>
                 </span>
 
-                <button>Submit Data</button>
+                <button>
+                  {!disable ? (
+                    "Submit Data"
+                  ) : (
+                    <ThreeDots
+                      height="40"
+                      width="60"
+                      radius="9"
+                      color="#FFFFFF"
+                      ariaLabel="three-dots-loading"
+                      wrapperStyle
+                      wrapperClass
+                    />
+                  )}
+                </button>
               </form>
             </nav>
           </>
@@ -459,6 +485,9 @@ const Main = styled.main`
         color: #ffffff;
         cursor: pointer;
         margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

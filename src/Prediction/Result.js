@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import SimpleMap from "../Styles/Map";
-import { useState, useEffect, useRef } from "react";
 
 export default function Result({ goMain, setMain, data }) {
   const result = data.price[0];
@@ -34,7 +32,6 @@ const Main = styled.footer`
   word-break: break-word;
   margin-top: 15px;
   gap: 30px;
-  // width: 80%;
 
   h1 {
     font-size: 24px;
@@ -63,6 +60,10 @@ const Main = styled.footer`
     border: 2px solid #d5d3d2;
     flex-wrap: wrap;
     word-break: break-word;
+
+    @media screen and (max-width: 315px) {
+      font-size: 28px;
+    }
   }
 
   h6 {
