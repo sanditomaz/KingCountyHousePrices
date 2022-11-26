@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
         a {
             text-decoration: none;
             cursor: pointer;
+            font-weight: 600;
+            color: #052a7b;
         }
 
         ::-webkit-scrollbar {

@@ -22,15 +22,14 @@ export default function About() {
           <h1>The Dataset</h1>
           <p>
             The project was developed using the House Sales in King County, USA
-            Dataset, avaliable here:
+            Dataset, available -
+            <a
+              href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"
+              target="blank"
+            >
+              here
+            </a>
           </p>
-
-          <a
-            href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"
-            target="blank"
-          >
-            (https://www.kaggle.com/datasets/harlfoxem/housesalesprediction).
-          </a>
         </nav>
         <nav>
           <h1>The Author</h1>
