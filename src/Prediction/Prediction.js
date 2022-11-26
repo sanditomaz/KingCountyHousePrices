@@ -40,24 +40,17 @@ export default function Prediction({ goMain, setMain }) {
 
   toSend = { data: [form] };
 
-  console.log(toSend);
-
-  console.log(data);
   return (
     <OutterBox>
       <Main>
         {goMain ? (
           <>
-            <div>
-              <h1>Prediction Interactive Form</h1>
+            <div className="intro">
+              <h1>Predictions Interactive Tool</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Fill the form with the information of the house you wish to
+                estimate the price using the GradientBoosting model with $65000
+                of MAE and 0.9 of R2.
               </p>
             </div>
 
@@ -83,6 +76,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="15"
                       step="1"
+                      placeholder="Type value from 0 to 15"
                       required
                       onChange={handleForm}
                     />
@@ -90,7 +84,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
 
                     <label htmlFor="bathrooms">
-                      Number of bathrooms/bedrooms:
+                      Number of bathrooms per bedrooms:
                     </label>
                     <input
                       type="number"
@@ -98,19 +92,23 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="8"
                       step="0.1"
+                      placeholder="Type value from 0 to 8"
                       required
                       onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label htmlFor="sqft_living">Interior living space:</label>
+                    <label htmlFor="sqft_living">
+                      Square footage of the interior living space:
+                    </label>
                     <input
                       type="number"
                       name="sqft_living"
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
@@ -126,6 +124,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="1.0"
                       max="3.5"
                       step="0.1"
+                      placeholder="Type value from 1.0 to 3.5"
                       required
                       onChange={handleForm}
                     />
@@ -142,6 +141,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
@@ -155,6 +155,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="45.0"
                       max="50.0"
                       step="0.1"
+                      placeholder="Type value from 45.0 to 50.0"
                       required
                       onChange={handleForm}
                     />
@@ -168,6 +169,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="-123.0"
                       max="-121.0"
                       step="0.1"
+                      placeholder="Type value from -123.0 to -121.0"
                       required
                       onChange={handleForm}
                     />
@@ -184,6 +186,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
@@ -211,19 +214,21 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
                     <br />
                     <br />
 
-                    <label htmlFor="view">How good the view is: </label>
+                    <label htmlFor="view">How good is the view ? </label>
                     <input
                       type="number"
                       name="view"
                       min="0"
                       max="4"
                       step="1"
+                      placeholder="Type value from 0 to 4"
                       required
                       onChange={handleForm}
                     />
@@ -231,7 +236,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
 
                     <label htmlFor="condition">
-                      How good the condition is:
+                      How good is the condition of the house ?
                     </label>
                     <input
                       type="number"
@@ -239,6 +244,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="1"
                       max="5"
                       step="1"
+                      placeholder="Type value from 1 to 5"
                       required
                       onChange={handleForm}
                     />
@@ -246,7 +252,7 @@ export default function Prediction({ goMain, setMain }) {
                     <br />
 
                     <label htmlFor="grade">
-                      Overall grade given to the housing unit:
+                      What is the overall grade given to the housing unit ?
                     </label>
                     <input
                       type="number"
@@ -254,6 +260,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="1"
                       max="13"
                       step="1"
+                      placeholder="Type value from 1 to 13"
                       required
                       onChange={handleForm}
                     />
@@ -269,6 +276,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
@@ -282,6 +290,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="1900"
                       max="2022"
                       step="1"
+                      placeholder="Year house was built"
                       required
                       onChange={handleForm}
                     />
@@ -298,6 +307,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="2022"
                       step="1"
+                      placeholder="Year house has been renovated"
                       required
                       onChange={handleForm}
                     />
@@ -313,6 +323,7 @@ export default function Prediction({ goMain, setMain }) {
                       min="0"
                       max="10000"
                       step="0.1"
+                      placeholder="Type value from 0 to 10k"
                       required
                       onChange={handleForm}
                     />
@@ -365,6 +376,11 @@ const Main = styled.main`
   justify-content: center;
   padding-bottom: 80px;
 
+  .intro {
+    max-width: 600px;
+    width: 100%;
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -373,6 +389,7 @@ const Main = styled.main`
     word-wrap: wrap;
     word-break: break-word;
     margin-top: 15px;
+
     h1 {
       font-size: 28px;
       font-weight: 700;

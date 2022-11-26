@@ -8,13 +8,11 @@ export default function About() {
           <h1>The Project</h1>
           <span>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              In this project, the goal is to solve a business problem where a
+              fictitious company is looking for real state to invest, with this
+              WebApp one can consult the estimated prices. The model achieved a
+              R2 of 0.9 using a GradientBoostingRegressor, below we have a
+              feature importance chart:
             </p>
 
             <img src="Image/model.jpeg" alt="" />
@@ -23,30 +21,28 @@ export default function About() {
         <nav>
           <h1>The Dataset</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            The project was developed using the House Sales in King County, USA
+            Dataset, avaliable here:
           </p>
+
+          <a
+            href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"
+            target="blank"
+          >
+            (https://www.kaggle.com/datasets/harlfoxem/housesalesprediction).
+          </a>
         </nav>
         <nav>
           <h1>The Author</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            My name is Kairo Silveira. I am a stundent of Data Science and
+            MLOps, I have knowledge in python, SQL, Machine Learning and I am
+            looking for an opportunity in the market.
           </p>
         </nav>
         <header>
           <h2>
-            This Webpage was developed by Sandi Tomaz -
+            Front end developed by Sandi Tomaz -
             <a
               href="https://www.linkedin.com/in/sanditomaz/"
               target="_blank"
@@ -109,12 +105,15 @@ const Main = styled.main`
       align-items: flex-start;
       justify-content: center;
       gap: 15px;
+      flex-wrap: wrap;
+      word-break: break-all;
 
       span {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 20px;
+        word-break: break-word;
 
         img {
           max-width: 800px;
