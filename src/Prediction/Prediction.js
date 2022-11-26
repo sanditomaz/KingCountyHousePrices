@@ -46,7 +46,7 @@ export default function Prediction({ goMain, setMain }) {
         {goMain ? (
           <>
             <div className="intro">
-              <h1>Predictions Interactive Tool</h1>
+              <h1>House Information Form</h1>
               <p>
                 Fill the form with the information of the house you wish to
                 estimate the price using the GradientBoosting model with $65000
