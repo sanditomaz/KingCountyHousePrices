@@ -105,7 +105,7 @@ const Main = styled.main`
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      word-break: break-all;
+      word-break: break-word;
 
       span {
         display: flex;
