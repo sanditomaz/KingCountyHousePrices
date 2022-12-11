@@ -16,7 +16,7 @@ export default function Prediction({ goMain, setMain }) {
     e.preventDefault();
 
     const promise = axios.post(
-      "https://house-regression.herokuapp.com/predict",
+      "https://house-pricing-regression.onrender.com/predict",
       toSend
     );
     promise.then((res) => {
